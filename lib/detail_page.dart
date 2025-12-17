@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   const DetailPage({super.key, required this.pokemon});
-  final  dynamic pokemon;
+  final dynamic pokemon;
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE8F3F5),
-      body: Center(child: Text("Detail Page for ${pokemon.name}")),
+      backgroundColor: Color(0xFFF5FBFB),
+      appBar: AppBar(
+        backgroundColor: Color(0xFFF5FBFB),
+        title: Text(
+          widget.pokemon.name,
+          style: TextStyle(
+            color: Color(0xFF232447),
+            fontWeight: FontWeight.bold,
+            fontSize: 29,
+          ),
+        ),
+      ),
     );
   }
 }
