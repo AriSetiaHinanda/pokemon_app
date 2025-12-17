@@ -43,7 +43,7 @@ class _DetailPageState extends State<DetailPage> {
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: Container(
-              height: 400,
+              height: 300,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Color(0xFFBCD9D8),

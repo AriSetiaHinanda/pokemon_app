@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:pokemon_app/detail_page.dart';
 import 'package:pokemon_app/model/dummy_data.dart';
