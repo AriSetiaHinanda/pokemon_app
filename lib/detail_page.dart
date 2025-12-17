@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/model/pokemon.dart';
+import 'package:pokemon_app/shared/widget/pokemon_card_widget.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key, required this.pokemon});
-  final dynamic pokemon;
+  final Pokemon pokemon;
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -23,6 +25,38 @@ class _DetailPageState extends State<DetailPage> {
             fontSize: 29,
           ),
         ),
+      ),
+      body: Column(
+        children: [
+          SizedBox(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  widget.pokemon.id.toString().padLeft(3, '0'),
+                  style: TextStyle(fontSize: 20, color: Color(0xFF3C414F)),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Container(
+              height: 400,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xFFBCD9D8),
+                borderRadius: BorderRadius.circular(28),
+              ),
+              child: PokemonCardWidget(
+                imageUrl: widget.pokemon.imageUrl,
+                type: widget.pokemon.type,
+                showType: false,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

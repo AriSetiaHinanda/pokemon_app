@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 
 class PokemonCardWidget extends StatelessWidget {
   final String imageUrl;
-  final String name;
-  final String type;
-  final VoidCallback onTap;
+  final String? name;
+  final String? type;
+  final VoidCallback? onTap;
+  final bool showType;
 
   const PokemonCardWidget({
     super.key,
     required this.imageUrl,
-    required this.name,
-    required this.type,
-    required this.onTap,
+    this.name,
+    this.type,
+    this.onTap,
+    this.showType = true,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +38,12 @@ class PokemonCardWidget extends StatelessWidget {
             Image.network(imageUrl, height: 100, width: 100),
             SizedBox(height: 10),
             Text(
-              name,
+              name ?? '',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 5),
             Text(
-              'Type: $type',
+              showType ? (type ?? '') : '',
               style: TextStyle(fontSize: 16, color: Colors.grey[600]),
             ),
           ],
